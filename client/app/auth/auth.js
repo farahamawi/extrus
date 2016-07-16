@@ -1,7 +1,28 @@
-// do not tamper with this code in here, study it, but do not touch
 // this Auth controller is responsible for our client side authentication
-// in our signup/signin forms using the injected Auth service
+// in our signin/signout form using the injected Auth service
 angular.module('RBKme.auth', [])
 
 .controller('AuthController', function ($scope, $window, $location, Auth) {
+
+	$scope.user = {};
+
+	$scope.signin = function () {
+	    Auth.signin($scope.user)
+	      .then(function () {
+	        $location.path('/profileView');
+	      })
+	      .catch(function (error) {
+	        console.error(error);
+	      });
+  	};
+
+  	$scope.signout = function () {
+  		Auth.signout($scope.user)
+  		.then(function () {
+  			$location.path('/home')
+  		})
+  		.catch(function (error) {
+  			console.error(error);
+  		});
+  	};
 });

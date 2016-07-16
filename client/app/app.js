@@ -8,3 +8,20 @@ angular.module('RBKme', [
   'RBKme.auth',
   'ngRoute'
 ])
+.config(function ($routeProvider, $httpProvider) {
+  $routeProvider
+    .when('/signin', {
+      templateUrl: 'app/auth/home.html',
+      controller: 'AuthController'
+    })
+    .when('/signout', {
+    	templateUrl: 'app/home/home.html',
+    	controller: 'AuthController'
+    })
+    .when('/', {
+    	templateUrl: 'app/home/home.html',
+    	controller: 'AuthController'
+    })
+    
+
+});
