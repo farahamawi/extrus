@@ -11,18 +11,12 @@ angular.module('RBKme.auth', [])
 	      .then(function () {
 	        $location.path('/profileView');
 	      })
+        .then(function (token) {
+        $window.localStorage.setItem('com.RBKme', token);
+        $location.path('/profileView');
+      })
 	      .catch(function (error) {
 	        console.error(error);
 	      });
-  	};
-
-  	$scope.signout = function () {
-  		Auth.signout($scope.user)
-  		.then(function () {
-  			$location.path('/home')
-  		})
-  		.catch(function (error) {
-  			console.error(error);
-  		});
   	};
 });

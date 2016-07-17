@@ -9,18 +9,19 @@ angular.module('RBKme.services', [])
 		    data: user
 	    })
 	    .then(function (resp) {
-	      return resp.data.token;
+	      return resp.data
 	    });
   	};
   	var signout = function () {
+	    $window.localStorage.removeItem('com.RBKme');
 	    $location.path('/signin');
 	};
 
 
-  return {
-  	signin:signin,
-  	signout:signout
-  };
+	return {
+	  	signin:signin,
+	  	signout:signout
+	};
 
 })
 
@@ -33,36 +34,54 @@ angular.module('RBKme.services', [])
 			data:username
 		})
 		.then(function (resp){
-			return resp
+			return resp.data
 		});
 	};
 	// allow user to edit his profile
-	var Edit = function(userInfo){
+	var edit = function(userInfo){
+		console.log(userInfo)
 		return $http({
 			method: 'POST',
-			url: '/api/profile',
-			data: json.stringify(userInfo)
+			url: '/api/users/editProfile',
+			data: userInfo
 		})
 		.then (function (resp){
-			return resp.data
+			return resp
 		});
 	};
 
 	return {
 		userProfile:userProfile,
-		userEdit:userEdit
+		edit:edit
 	}
 })
 
 .factory('Blog', function ($http){
-	var blog = function(blog){
+	
+	var postBlog = function(blog){
+		console.log(blog)
 		return $http({
 			method:'POST',
-			url:'api/blog',
+			url:'api/blogs',
 			data:blog
+		})
+		.then(function (resp){
+			return resp
+		});
+	};
+
+	var getBlogs = function(){
+		return $http({
+			method:'GET',
+			url:'api/blogs',
 		})
 		.then(function (resp){
 			return resp.data
 		});
 	};
+
+	return {
+		postBlog:postBlog,
+		getBlogs:getBlogs
+	}
 })

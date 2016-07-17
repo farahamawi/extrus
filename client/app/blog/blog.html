@@ -1,6 +1,20 @@
 <div id='container' ng-module="RBKme.blog">
-<!-- Your code here -->
+	<div ng-controller = 'BlogController'>
+		<div>
+			<form ng-submit="postBlog()">
+				<input ng-model="from" />
+				<input ng-model="title" />
+				<textarea ng-model="text"></textarea>
+				<button type="submit"> post </button>
+			</form>
+		</div>
+		<br>
+		<hr>
+		<div ng-repeat = "text in data">
+			{{text}}
+		</div>
+		
+	</div>
 
 </div>
-
 

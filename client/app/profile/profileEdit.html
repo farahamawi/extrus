@@ -1,3 +1,16 @@
 <div id='container' ng-module="RBKme.profileEdit">
+	<form ng-controller = 'profileEditController'>
+		<input type="text" placeholder="first name" ng-model ='firstName' />
+		<br>
+		<input type="text" placeholder="last name" ng-model ='lastName' /><br>
+		<input type="text" placeholder="email" ng-model ='email' /><br>
+		<input type="text" placeholder="password" ng-model ='password' />
+		<br>
+		<input type="text" placeholder="age" ng-model ='age' /><br>
+		<input type="text" placeholder="cohort no" ng-model ='cohortNumber' />
+		<br>
+		<input type="text" placeholder="about me" ng-model ='About' /><br><hr>
 
+		<button ng-click = "editProfile()">save change </button>
+	</form>
 </div>
