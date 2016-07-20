@@ -40,6 +40,7 @@
     "sinon": "^1.17.2"
   },
   "dependencies": {
+    "angular": "^1.5.7",
     "bcrypt-nodejs": "0.0.3",
     "bluebird": "^1.0.8",
     "body-parser": "^1.4.3",
