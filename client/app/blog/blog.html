@@ -2,9 +2,9 @@
 	<div ng-controller = 'BlogController'>
 		<div>
 			<form ng-submit="postBlog()">
-				<input ng-model="from" />
-				<input ng-model="title" />
-				<textarea ng-model="text"></textarea>
+				from :<input ng-model="from" /><br>
+				title :<input ng-model="title" /><br>
+				blog :<br><textarea ng-model="text"></textarea>
 				<button type="submit"> post </button>
 			</form>
 		</div>

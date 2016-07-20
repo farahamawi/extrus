@@ -18,7 +18,7 @@ angular.module('RBKme.blog', [])
 		 	title:$scope.title,
 		 	blog:$scope.text
  		};
- 		//console.log(post)
+ 		console.log(post)
   		Blog.postBlog (post)
   		.then (function (data){
   			$scope.Blog=data
@@ -26,31 +26,4 @@ angular.module('RBKme.blog', [])
   	};
 
 
-})
-.factory('Blog', function ($http){
-	var postBlog = function(blog){
-		return $http({
-			method:'POST',
-			url:'api/blogs',
-			data:blog
-		})
-		.then(function (resp){
-			return resp
-		});
-	};
-
-	var getBlogs = function(){
-		return $http({
-			method:'GET',
-			url:'api/blog',
-		})
-		.then(function (resp){
-			return resp.data
-		});
-	};
-
-	return {
-		postBlog:postBlog,
-		getBlogs:getBlogs
-	}
 })

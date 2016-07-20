@@ -59,10 +59,10 @@ angular.module('RBKme.services', [])
 .factory('Blog', function ($http){
 	
 	var postBlog = function(blog){
-		console.log(blog)
+		
 		return $http({
 			method:'POST',
-			url:'api/blogs',
+			url:'/api/blogs',
 			data:blog
 		})
 		.then(function (resp){
